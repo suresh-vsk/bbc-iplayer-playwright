@@ -2,17 +2,14 @@ import { test, expect } from "../fixtures/fixtures";
 
 test.describe.parallel("BBC iPlayer Homepage Tests (with fixtures)", () => {
   test("Homepage has correct title", async ({ homePage }) => {
-    await homePage.goto();
     await expect(homePage.page).toHaveTitle("BBC iPlayer - Home");
   });
 
   test("Navigation menu exists", async ({ homePage }) => {
-    await homePage.goto();
     await expect(homePage.navigation.isVisible()).toBeTruthy();
   });
 
   test("Homepage has at least 4 sections that each contain 1 carousel", async ({ homePage }) => {
-    await homePage.goto();
     const sectionCount = await homePage.sections.getSectionsWithCarouselsCount();
     console.log(`Found ${sectionCount} sections with carousels`);
     expect(sectionCount).toBeGreaterThan(3);
@@ -20,7 +17,6 @@ test.describe.parallel("BBC iPlayer Homepage Tests (with fixtures)", () => {
   });
 
   test("Each carousel has at least 4 items", async ({ homePage }) => {
-    await homePage.goto();
     const sectionCount = await homePage.sections.getSectionsWithCarouselsCount();
 
     for (let i = 0; i < sectionCount; i++) {
@@ -31,7 +27,6 @@ test.describe.parallel("BBC iPlayer Homepage Tests (with fixtures)", () => {
   });
 
   test("Clicking carousel arrow shows more items", async ({ homePage }) => {
-    await homePage.goto();
     const carousel = homePage.sections.getCarousel(0);
     const initialCount = await carousel.getItemCount();
     await carousel.clickNextArrow();
@@ -40,8 +35,7 @@ test.describe.parallel("BBC iPlayer Homepage Tests (with fixtures)", () => {
   });
 
   test("Clicking episode opens playback page", async ({ homePage, playbackPage,}) => {
-    await homePage.goto();
-    const carousel = homePage.sections.getCarousel(0);
+    const carousel = homePage.sections.getCarousel(1);
     const carouselItems = carousel.getItems();
     const firstItem = await carouselItems.first().innerText();
     console.log(`First item text: ${firstItem}`);
