@@ -1,0 +1,43 @@
+{
+  "name": "bbc-iplayer-playwright",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "npx playwright test",
+    "test:headed": "npx playwright test --headed",
+    "test:debug": "npx playwright test --debug",
+    "test:chrome": "npx playwright test --project=chromium",
+    "test:firefox": "npx playwright test --project=firefox",
+    "test:safari": "npx playwright test --project=webkit",
+    "test:parallel": "npx playwright test --workers=4",
+    "test:qa": "cross-env NODE_ENV=qa npx playwright test",
+    "test:dev": "cross-env NODE_ENV=dev npx playwright test",
+    "test:prod": "cross-env NODE_ENV=prod npx playwright test",
+    "test:report": "npm run test && npx playwright show-report",
+    "lint": "npx eslint .",
+    "lint:fix": "npx eslint . --fix",
+    "format": "npx prettier . --check",
+    "format:fix": "npx prettier . --write",
+    "prepare": "husky",
+    "allure-report": "npx allure serve allure-results",
+    "allure-report:generate": "npx allure generate allure-results -o allure-report --clean",
+    "test:allure-report": "npm run test && npm run allure-report:generate && npm run allure-report"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.43.1",
+    "@types/node": "^24.0.3",
+    "@typescript-eslint/eslint-plugin": "^6.20.0",
+    "@typescript-eslint/parser": "^6.20.0",
+    "cross-env": "^7.0.3",
+    "dotenv": "^16.5.0",
+    "eslint": "^8.56.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-playwright": "^0.22.1",
+    "husky": "^9.0.11",
+    "prettier": "3.2.5",
+    "typescript": "^5.0.0",
+    "allure-playwright": "^2.9.0"
+  },
+  "dependencies": {
+    "allure-commandline": "^2.24.0"
+  }
+}

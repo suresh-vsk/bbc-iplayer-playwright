@@ -1,0 +1,100 @@
+node_modules/
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+/playwright-ts-orangehrm-website.iml
+/.idea/.gitignore
+/.idea/misc.xml
+/.idea/modules.xml
+/.idea/vcs.xml
+
+
+# Dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+yarn.lock
+
+# Test Results and Reports
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+allure-results/
+allure-report/
+test-results.json
+
+# Screenshots and Videos
+screenshots/
+videos/
+traces/
+
+# Logs
+*.log
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# Environment Variables
+.env
+.env.local
+.env.dev
+.env.qa
+.env.prod
+
+# IDE and Editor Files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.classpath
+.settings/
+
+# OS Generated Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+*.tmp
+*.temp
+
+
+
+# Temporary Files
+tmp/
+temp/
+
+# Browser Downloads
+downloads/
+
+# Playwright Specific
+/playwright-report/
+/test-results/
+/playwright/.cache/
+
+# Allure Specific
+.allure/
+
+# Node.js
+.npm
+.node_repl_history
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+
+# Output of 'npm pack'
+*.tgz
+
