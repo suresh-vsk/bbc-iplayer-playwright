@@ -129,4 +129,8 @@ npm run allure-report
 
 # View Playwright HTML report
 npx playwright show-report
+
+
+# sample allure report - please take a look at the following file.
+Screenshot 2025-06-18 at 21.48.43.png
 ```
