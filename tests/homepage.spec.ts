@@ -5,7 +5,9 @@ test.describe.parallel("BBC iPlayer Homepage Tests (with fixtures)", () => {
     await expect(homePage.page).toHaveTitle("BBC iPlayer - Home");
   });
 
-  test("Navigation menu exists", async ({ homePage }) => {
+  test("Homepage page has one iPlayer navigation menu", async ({ homePage }) => {
+    const menuCount = await homePage.navigation.getNavigationMenuCount();
+    expect(menuCount).toBe(1);
     await expect(homePage.navigation.isVisible()).toBeTruthy();
   });
 
@@ -16,7 +18,7 @@ test.describe.parallel("BBC iPlayer Homepage Tests (with fixtures)", () => {
     await homePage.sections.validateEachSectionHasOneCarousel();
   });
 
-  test("Each carousel has at least 4 items", async ({ homePage }) => {
+  test("Homepage shows at least 4 programme items in each carousel", async ({ homePage }) => {
     const sectionCount = await homePage.sections.getSectionsWithCarouselsCount();
 
     for (let i = 0; i < sectionCount; i++) {
@@ -34,7 +36,7 @@ test.describe.parallel("BBC iPlayer Homepage Tests (with fixtures)", () => {
     expect(newCount).toBeGreaterThanOrEqual(initialCount);
   });
 
-  test("Clicking episode opens playback page", async ({ homePage, playbackPage,}) => {
+  test("The relevant Playback page is displayed when an episode is clicked", async ({ homePage, playbackPage,}) => {
     const carousel = homePage.sections.getCarousel(1);
     const carouselItems = carousel.getItems();
     const firstItem = await carouselItems.first().innerText();
