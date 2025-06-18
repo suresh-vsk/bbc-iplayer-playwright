@@ -37,7 +37,7 @@ The framework will automatically install and manage browser binaries:
 ### 1. Clone/Download the Project
 ```bash
 git clone <repository-url>
-cd bbc-iplayer-automation
+cd bbc-iplayer-playwright
 ```
 
 ### 2. Install Dependencies
