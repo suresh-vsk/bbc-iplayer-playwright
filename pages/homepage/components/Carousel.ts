@@ -1,7 +1,7 @@
 import { Page, Locator } from "@playwright/test";
+import { BasePage } from "../../BasePage";
 
-export default class Carousel {
-  readonly page: Page;
+export default class Carousel extends BasePage{
   private activeIndex: number = 0;
   private readonly sectionWithCarouselSelector: string;
   private readonly carouselSelector: string;
@@ -10,7 +10,7 @@ export default class Carousel {
   private readonly prevArrowSelector: string;
 
   constructor(page: Page) {
-    this.page = page;
+    super(page);
     this.sectionWithCarouselSelector = "section:has(.carrousel)";
     this.carouselSelector = ".carrousel";
     this.carouselItemSelector = "li.carrousel__item";

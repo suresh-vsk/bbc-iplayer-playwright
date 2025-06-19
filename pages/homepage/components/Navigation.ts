@@ -1,11 +1,11 @@
 import { Page, Locator } from "@playwright/test";
+import { BasePage } from "../../BasePage";
 
-export default class Navigation {
-  readonly page: Page;
+export default class Navigation extends BasePage {
   readonly navigationMenu: Locator;
 
   constructor(page: Page) {
-    this.page = page;
+    super(page);
     this.navigationMenu = page.locator('ul[data-bbc-container="primary-nav"]');
   }
 

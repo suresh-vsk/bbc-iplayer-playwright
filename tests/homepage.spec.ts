@@ -2,7 +2,7 @@ import { test, expect } from "../fixtures/fixtures";
 
 test.describe.parallel("BBC iPlayer Homepage Tests (with fixtures)", () => {
   test("Homepage has correct title", async ({ homePage }) => {
-    await expect(homePage.page).toHaveTitle("BBC iPlayer - Home");
+    await homePage.verifyTitle("BBC iPlayer - Home");
   });
 
   test("Homepage page has one iPlayer navigation menu", async ({ homePage }) => {
@@ -38,6 +38,7 @@ test.describe.parallel("BBC iPlayer Homepage Tests (with fixtures)", () => {
 
   test("The relevant Playback page is displayed when an episode is clicked", async ({ homePage, playbackPage,}) => {
     const carousel = homePage.sections.getCarousel(1);
+    homePage.sections.carousel.scrollToElement(carousel.getActiveCarousel());
     const carouselItems = carousel.getItems();
     const firstItem = await carouselItems.first().innerText();
     console.log(`First item text: ${firstItem}`);
